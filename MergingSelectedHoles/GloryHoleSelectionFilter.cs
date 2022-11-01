@@ -1,16 +1,11 @@
 ﻿using Autodesk.Revit.DB;
 using Autodesk.Revit.UI.Selection;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace MergingSelectedHoles
 {
     class GloryHoleSelectionFilter : ISelectionFilter
     {
-		public bool AllowElement(Autodesk.Revit.DB.Element elem)
+		public bool AllowElement(Element elem)
 		{
 			if (elem is FamilyInstance
 				&& elem.Category.Id.IntegerValue == (int)BuiltInCategory.OST_GenericModel
@@ -22,7 +17,7 @@ namespace MergingSelectedHoles
 			return false;
 		}
 
-		public bool AllowReference(Autodesk.Revit.DB.Reference reference, Autodesk.Revit.DB.XYZ position)
+		public bool AllowReference(Reference reference, XYZ position)
 		{
 			return false;
 		}
